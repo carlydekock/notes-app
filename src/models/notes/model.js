@@ -3,8 +3,9 @@
 const mongoose = require('mongoose');
 
 const noteSchema = mongoose.Schema({
-  type: { default: 'private', enum: ['public', 'private'], },
-  notebody: { type: String, required: true },
+  type: { type: String, required: true, default: 'private', enum: ['public', 'private'], },
+  note: { type: String, required: true },
+  author: { type: String, required: true }
 });
 
 const noteModel = mongoose.model('notes', noteSchema);
