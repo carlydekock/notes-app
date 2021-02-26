@@ -8,7 +8,14 @@ const basicAuth = require('./middleware/basic.js');
 const bearerAuth = require('./middleware/bearer.js');
 const permissions = require('./middleware/acl.js');
 
+authRouter.get('/', getIndexPage);
+
+function getIndexPage(req, res, next) {
+  res.render('index.ejs');
+}
+
 authRouter.post('/signup', async (req, res, next) => {
+  console.log(req.body, 'xxxXXXXXXXXxxxxxxx')
   try {
     let user = new User(req.body);
     const userRecord = await user.save();

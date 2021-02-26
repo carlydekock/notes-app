@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<main>
+
+    <ul>
+      <% allNotes.forEach(note => { %>
+      <li id="<%= note.id %>" class="<%= note.authorid %>">
+        <p><%= note.type %></p>
+        <p><%= note.note %></p>
+  
+        <form action="/notes/<%= note.id %>?_method=put" method="POST">
+          <input type="hidden" name="note" value="<%= note.note %>">
+          <input type="submit" value="Edit Note">
+        </form>
+        
+        <form id="delete" action="/notes/<%= note.id %>?_method=delete" method="POST">
+          <input type="hidden" name="id" value="<%= note.id %>">
+          <input type="submit" value="Delete Note">
+        </form>
+      </li>
+      <%})%>
+      </ul>
+      
+      
+      
+      <!--       <form class="notesupdate">
+            <button type="submit" name="update">Update</button>
+            <button type="submit" name="delete">Delete</button>
+            <input type="hidden" name="note_id" value="{{id}}">
+            <input type="hidden" name="note_authorid" value="{{authorid}}">
+            </form> -->
+      
+      
+      
+  
+  </main>
+
+  </html>

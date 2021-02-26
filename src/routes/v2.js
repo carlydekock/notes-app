@@ -28,17 +28,28 @@ router.param('model', (req, res, next) => {
   }
 });
 
-router.get('/:model', handleGetAll);
+router.get('/:model', handleNotesPage);
+/* router.get('/:model', handleGetAll); */
 router.get('/:model/:id', handleGetOne);
 router.post('/:model', bearerAuth, permissions('create'), handleCreate);
 router.put('/:model/:id', bearerAuth, permissions('update'), handleUpdate);
 router.patch('/:model/:id', bearerAuth, permissions('update'), handleUpdate);
 router.delete('/:model/:id', bearerAuth, permissions('delete'), handleDelete);
 
-async function handleGetAll(req, res) {
+async function handleNotesPage(req, res) {
+  let allNotes = await req.model.get();
+  res.render('/notes.ejs', { allnotes: allnotes });
+  res.status(200).json(allNotes).catch(err => {
+
+    res.status(500).send('damn it');
+    console.log(err)
+  });
+}
+
+/* async function handleGetAll(req, res) {
   let allRecords = await req.model.get();
   res.status(200).json(allRecords);
-}
+} */
 
 async function handleGetOne(req, res) {
   const id = req.params.id;

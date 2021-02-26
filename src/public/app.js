@@ -17,3 +17,28 @@ function userTokenRetrieveLs() {
   let parsedToken = JSON.parse(tokenFromLs);
   return parsedToken;
 }
+
+
+
+
+/* function Note(jsonObject) {
+  this.id = jsonObject.id;
+  this.type = jsonObject.type;
+  this.note = jsonObject.note;
+  this.authorid = jsonObject.author_id;
+}
+
+Note.prototype.render = function () {
+  const template = $('#note-template').html();
+  const noteHTML = Mustache.render(template, this);
+  $('ul').append(noteHTML);
+}; */
+
+
+/*   const $newAnimalOption = $('#templateSelector').find('option').clone(); */
+
+/*   if (keywordArray.includes(this.keyword) !== true) {
+    keywordArray.push(this.keyword);
+    $newAnimalOption.attr('value', this.keyword);
+    $newAnimalOption.text(this.keyword);
+    $('#keyword').append($newAnimalOption); */
