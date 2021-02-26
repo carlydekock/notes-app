@@ -15,7 +15,7 @@ function getIndexPage(req, res, next) {
 }
 
 authRouter.post('/signup', async (req, res, next) => {
-  console.log(req.body, 'xxxXXXXXXXXxxxxxxx')
+  //console.log(req.body, 'xxxXXXXXXXXxxxxxxx')
   try {
     let user = new User(req.body);
     const userRecord = await user.save();
